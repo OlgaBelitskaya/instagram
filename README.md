@@ -11,4 +11,5 @@
 <a href="https://olgabelitskaya.github.io/instagram5.html" style="font-size:120%;">&#x1F300; &nbsp; Part 5</a>
 
 # &#x1F4D1; &nbsp; Notebooks in WolframCloud
-<a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram.nb style="font-size:120%;">&#x1F300; &nbsp; Part 1</a>
+<a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram.nb style="font-size:120%;">&#x1F300; &nbsp; Part 1</a><p/>
+<a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram2.nb style="font-size:120%;">&#x1F300; &nbsp; Part 2</a>
