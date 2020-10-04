@@ -1,8 +1,10 @@
 # &#x1F4D1; &nbsp; Notebooks & Webpages for Creating Instagram Posts
 
+[![In Progress](https://olgabelitskaya.github.io/badge_in_progress.svg)](https://olgabelitskaya.github.io/README_ColabKaggle.html)
+
 <a href="https://www.instagram.com/olga.belitskaya/" style="font-size:120%;">&#x1F300; &nbsp; Instagram Posts</a> &nbsp; &nbsp; &nbsp; <a href="https://www.pinterest.ru/olga_belitskaya/code-style/" style="font-size:120%;">&#x1F300; &nbsp; Pinterest Posts</a>
 
-# &#x1F4D1; &nbsp; Pages with SageMathCell
+<br/><details><summary> &#x1F4D1; &nbsp; Pages with SageMathCell</summary>
 
 <a href="https://olgabelitskaya.github.io/instagram.html" style="font-size:120%;">&#x1F300; &nbsp; Part 1</a><br/> 
 <a href="https://olgabelitskaya.github.io/instagram2.html" style="font-size:120%;">&#x1F300; &nbsp; Part 2</a><br/>
@@ -17,10 +19,18 @@
 <a href="https://olgabelitskaya.github.io/instagram11.html" style="font-size:120%;">&#x1F300; &nbsp; Part 11</a><br/>
 <a href="https://olgabelitskaya.github.io/instagram12.html" style="font-size:120%;">&#x1F300; &nbsp; Part 12</a><br/>
 <a href="https://olgabelitskaya.github.io/instagram13.html" style="font-size:120%;">&#x1F300; &nbsp; Part 13</a><br/>
-<a href="https://olgabelitskaya.github.io/instagram14.html" style="font-size:120%;">&#x1F300; &nbsp; Part 13</a>
+<a href="https://olgabelitskaya.github.io/instagram14.html" style="font-size:120%;">&#x1F300; &nbsp; Part 14</a>
 
-# &#x1F4D1; &nbsp; Notebooks in WolframCloud
+<br/></details>
+
+[`SageMathCell`](https://sagecell.sagemath.org)
+
+---
+
+<br/><details><summary>&#x1F4D1; &nbsp; Notebooks in WolframCloud</summary>
 
 <a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram.nb style="font-size:120%;">&#x1F300; &nbsp; Part 1</a><br/>
 <a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram2.nb style="font-size:120%;">&#x1F300; &nbsp; Part 2</a><br/>
 <a href=https://www.wolframcloud.com/obj/safuolga/Published/instagram3.nb style="font-size:120%;">&#x1F300; &nbsp; Part 3</a>
+
+<br/></details>
