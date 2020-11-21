@@ -74,6 +74,7 @@ fig=pl.figure(figsize=(10,4))
 ax=fig.add_subplot('111')
 data.iloc[:,int(1):].plot.area(stacked=False,ax=ax)
 data_mean=pd.DataFrame(data.iloc[:,int(1):].mean()).T
+data_mean.index=['mean']
 pd.plotting.table(ax,data_mean,loc='top')
 pl.grid(); pl.show()
 </script></div><br/>
@@ -106,9 +107,9 @@ HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
 <script src='https://d3js.org/d3.v6.min.js'/>
 <svg id='d301' style='background-color:silver;'/>
 <script>
-var m=20,margin={top:m,right:m,bottom:m,left:m},
-    width=600-margin.left-margin.right,
-    height=600-margin.top-margin.bottom;
+m=20,margin={top:m,right:m,bottom:m,left:m},
+width=600-margin.left-margin.right,
+height=600-margin.top-margin.bottom;
 function randi(min,max) {
     return Math.floor(Math.random()*(max-min+1))+min;};
 function randcol() {
@@ -144,14 +145,12 @@ function RandomPlot(data,coef,col) {
        .text('[a,b,c,d,e,f]='+coef)
        .attr('x',width/2).attr('y',40)
        .attr('fill',col);};
-var xScale=d3.scaleLinear().domain([-3,3])
-             .range([0,width]);
-var yScale=d3.scaleLinear().domain([-3,3])
-                  .range([height,0]);
-var svg=d3.select('#d301')
-          .attr('width',width+margin.left+margin.right)
-          .attr('height',height+margin.top+margin.bottom)
-          .attr('transform','translate('+margin.left+','+margin.top+')');
+xScale=d3.scaleLinear().domain([-3,3]).range([0,width]);
+yScale=d3.scaleLinear().domain([-3,3]).range([height,0]);
+svg=d3.select('#d301')
+      .attr('width',width+margin.left+margin.right)
+      .attr('height',height+margin.top+margin.bottom)
+      .attr('transform','translate('+margin.left+','+margin.top+')');
 svg.append('text').text('<<< add a random line')
    .attr('x',60).attr('y',40).attr('fill','#36ffff')
    .attr('style','font-family:Akronim; font-size:120%'); 
