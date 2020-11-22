@@ -60,7 +60,7 @@ pd.plotting.parallel_coordinates(**params,ax=ax2)
 pl.show()
 </script></div><br/>
 <div class='linked'><script type='text/x-sage'>
-pl.figure(figsize=(8,8))
+pl.figure(figsize=(10,4))
 pd.plotting.radviz(**params,s=3)
 pl.xticks([]); pl.yticks([]); pl.show()
 </script></div><br/>
@@ -72,7 +72,7 @@ data[data<5000].drop('Region',axis=1)\
 pl.show()
 </script></div><br/>
 <div class='linked'><script type='text/x-sage'>
-fig=pl.figure(figsize=(8,4))
+fig=pl.figure(figsize=(10,4))
 ax=fig.add_subplot('111')
 data.iloc[:,int(1):].plot.area(
     stacked=False,ax=ax,cmap='Spectral')
@@ -83,18 +83,32 @@ pd.plotting.table(ax,data_mean,loc='top')
 pl.grid(); pl.show()
 </script></div><br/>
 <div class='linked'><script type='text/x-sage'>
-
+data.drop('Region',axis=1).groupby('Channel').sum().T\
+.plot.pie(subplots=True,figsize=(10,4),
+          legend=False,cmap='bwr')
+pl.show()
+</script></div><br/>
+<div class='linked'><script type='text/x-sage'>
+data_range=data.iloc[:,int(2):]\
+[(data<5000.)&(data>1000.)]
+params={'bins':int(80),'alpha':.5,
+        'figsize':(10,4),'color':colors}
+data_range.iloc[:,:int(3)].plot.hist(**params)
+pl.show()
+data_range.iloc[:,int(3):].plot.hist(**params)
+pl.show()
 </script></div><br/>
     <h1>Data Transformation</h1>
 Python <br/>
 <div class='sage'><script type='text/x-sage'>
+import json,pandas as pd,pylab as pl
 url='https://www.ecb.europa.eu/stats/policy_and_exchange_rates/'+\
     'euro_reference_exchange_rates/html/index.en.html'
 exchange_rates=pd.read_html(url)[0]\
 .drop('Chart',axis=1)
 exchange_rates[exchange_rates['Spot']<200]\
 .set_index('Currency').plot.bar(
-    figsize=(10,4),color=colors[0])
+    figsize=(10,4),color='#3636ff')
 pl.show()
 </script></div><br/>
     <h1>___</h1>
