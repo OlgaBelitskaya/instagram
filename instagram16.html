@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>Instagram_Posts16</title>
+    <script src='https://sagecell.sagemath.org/static/embedded_sagecell.js'></script>
+    <script>$(function (){
+    sagecell.makeSagecell({inputLocation:'div.linked',linked:true,
+                           evalButtonText:'Run Linked Cells'});
+    sagecell.makeSagecell({inputLocation:'div.sage_html',evalButtonText:'Run HTML'});  
+    sagecell.makeSagecell({inputLocation:'div.sage_js',evalButtonText:'Run JavaScript'});
+    sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
+    sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
+    </script>
+  </head>
+  <style>
+  @import 'https://fonts.googleapis.com/css?family=Orbitron';
+  h1,h2 {color:#3636ff; font-family:Orbitron; text-shadow:5px 5px 5px #aaa;}
+  p,a {color:darkblue; font-size:120%; text-shadow:5px 5px 5px #aaa;}
+  .sagecell .CodeMirror-scroll {min-height:3em; max-height:30em;}
+  body {margin:5px 5px 5px 15px;}
+  </style>  
+  <body>
+<script src='https://profile.codersrank.io/widget/widget.js'></script>
+<codersrank-widget username='olgabelitskaya' layout='vertical'
+style='--header-bg-color:#3636ff; font-family:Orbitron;'></codersrank-widget>
+    <h1>&#x1F4D1; &nbsp;Instagram Posts. Part 16</h1>
+<a href='https://olgabelitskaya.github.io/README.html'>&#x1F300; &nbsp; Home Page &nbsp; &nbsp;</a> 
+<a href='https://olgabelitskaya.github.io/instagram13.html'>&#x1F300; &nbsp; Previous &nbsp; &nbsp;</a><br/>
+<a href='https://www.instagram.com/olga.belitskaya/'>&#x1F300; &nbsp; Instagram Posts &nbsp; &nbsp;</a>     
+<a href='https://www.pinterest.ru/olga_belitskaya/code-style/'>&#x1F300; &nbsp; Pinterest Posts</a>
+    <h1>____</h1>
+SageMath <br/>
+<div class='sage'><script type='text/x-sage'>
+
+</script></div><br/>
+    <h1>____</h1>
+SageMath <br/>
+<div class='sage'><script type='text/x-sage'>
+
+</script></div><br/>
+    <h1>____</h1>
+SageMath <br/>
+<div class='sage'><script type='text/x-sage'>
+
+</script></div><br/>
+    <h1>_____</h1>
+Linked Cells & Python<br/>
+<div class='linked'><script type='text/x-sage'>
+
+</script></div><br/>
+<div class='linked'><script type='text/x-sage'>
+
+</script></div><br/>
+<div class='linked'><script type='text/x-sage'>
+
+</script></div><br/>
+    <h1>_____</h1>
+Python <br/>
+<div class='sage'><script type='text/x-sage'>
+
+</script></div><br/>
+    <h1>____</h1>
+Python <br/>
+<div class='sage'><script type='text/x-sage'>
+
+</script></div><br/>
+      <h1>_____</h1>
+R <br/>
+<div class='sage_r'><script type='text/x-sage'>
+%%r
+
+</script></div><br/>
+      <h1>_____</h1>
+R <br/>
+<div class='sage_r'><script type='text/x-sage'>
+%%r
+
+</script></div><br/>
+      <h1>Recursive Curves</h1>
+HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+<div class='sage_html'><script type='text/x-sage'>
+%%html
+<script src='https://d3js.org/d3.v6.min.js'/>
+<svg id='d301' style='background-color:silver;'/>
+<script>m=15,n=1,s=600;
+colors=['#3636ff','#ff3636','#ff36ff',
+        '#ffff36','#36ff36','#36ffff'];
+function subpoint(a,b,m) {
+  return [Math.floor(m/2)*(a[0]+b[0])/m,
+          Math.floor(m/2)*(a[1]+b[1])/m]};
+function subdivpoly(poly,m,iterations=1) {
+  var [p1,p2,p3]=poly,points=[];
+  var centroid=d3.polygonCentroid(poly);
+  if (iterations===0) {points.push(centroid);} 
+  else {var subset1=[p1,subpoint(p1,p3,m),p2],
+            subset2=[p2,subpoint(p1,p3,m),p3];
+        points.push(...subdivpoly(subset1,m,iterations-1));
+        points.push(...subdivpoly(subset2,m,iterations-1));}
+  return points};
+function recursive_curve(len,m,iterations) {
+  var contour1=[[0,len],[0,0],[len,0]],
+      contour2=[[len,0],[len,len],[0,len]];
+  var half1=subdivpoly(contour1,m,iterations),
+      half2=subdivpoly(contour2,m,iterations);
+  return [...half1,...half2];};
+line=d3.line();
+svg=d3.select('#d301').attr('width',s).attr('height',s);
+svg.selectAll('.curve').data(colors).join('path')
+     .attr('d',(_,i)=>line(recursive_curve(s,m,i+n))+'z')
+     .style('fill',d=>d).style('fill-opacity',.02)
+     .style('stroke',d=>d).style('stroke-width',2);
+</script></div><br/>
+      <h1>_____</h1>
+HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+<div class='sage_html'><script type='text/x-sage'>
+%%html
+   
+</script></div><br/>
+      <h1>_____</h1>
+HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+<div class='sage_html'><script type='text/x-sage'>
+%%html
+
+</script></div><br/>
+  </body>
+</html>
