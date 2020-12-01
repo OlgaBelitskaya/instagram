@@ -5,7 +5,7 @@
     <meta name='viewport' content='width=device-width'>
     <title>Instagram_Posts15</title>
     <script src='https://sagecell.sagemath.org/static/embedded_sagecell.js'></script>
-    <script>$(function (){
+    <script>$(function () {
     sagecell.makeSagecell({inputLocation:'div.linked',linked:true,
                            evalButtonText:'Run Linked Cells'});
     sagecell.makeSagecell({inputLocation:'div.sage_html',evalButtonText:'Run HTML'});  
@@ -13,8 +13,6 @@
     sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
     sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
     </script>
-  <script src='https://d3js.org/d3.v6.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/danfojs@0.1.1/dist/index.min.js'></script>
   </head>
   <style>
   @import 'https://fonts.googleapis.com/css?family=Orbitron';
@@ -213,143 +211,28 @@ legend('topright',colnames(customers[,c(3,4,5,6,7,8)]),
        col=seq_len(6),pch=13,cex=.8)
 grid(); dev.off(); summary(customers)
 </script></div><br/>
-      <h1>D3 Random Curves</h1>
-HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+      <h1>D3 </h1>
+<p>HTML &#38; JavaScript &#38; SageMathCell (Click 'Run HTML' twice!)</p>
 <div class='sage_html'><script type='text/x-sage'>
 %%html
-<style>@import 'https://fonts.googleapis.com/css?family=Akronim';</style>
-<svg id='d301' style='background-color:silver;'/>
-<script>
-m=20,margin={top:m,right:m,bottom:m,left:m},
-width=600-margin.left-margin.right,
-height=600-margin.top-margin.bottom;
-function randi(min,max) {
-    return Math.floor(Math.random()*(max-min+1))+min;};
-function randcol() {
-    var g=randi(50,200),b=randi(50,200);
-    return '#00'+g.toString(16)+b.toString(16);}
-function fx(a,b,c,d,e,f,t) {
-    var x1=Math.sin(t/d),
-        x2=(-1)**f*a*Math.sin(b*t)*Math.cos(t),
-        x3=(-1)**f*c*Math.sin(e*b*t);
-    return x1+x2+x3};
-function fy(a,b,c,d,e,f,t) {
-     var y1=Math.cos(t/d),
-         y2=(-1)**f*a*Math.sin(b*t)*Math.sin(t),
-         y3=(-1)**f*c*Math.cos(e*b*t);
-     return y1+y2+y3};
-function make_data() {
-    const a=randi(5,15)/10,b=randi(6,12),c=randi(1,100)/10**3,
-          d=randi(5,7),e=randi(14,18),f=randi(1,2);
-    var data=d3.range(1,10**3+1).map(function(k) {
-        return {'x':fx(a,b,c,d,e,f,k*b*e*Math.PI/10**3),
-                'y':fy(a,b,c,d,e,f,k*b*e*Math.PI/10**3)}; });
-    return [data,[a,b,c,d,e,f]]};
-function RandomPlot(data,coef,col) {
-    var line=d3.line().curve(d3.curveMonotoneX)
-               .x(function(d){return xScale(d.x);})
-               .y(function(d){return yScale(d.y);});
-    svg.append('path').datum(data)
-       .transition().duration(10000)
-       .attr('class','line').attr('d',line)
-       .attr('stroke',col).attr('stroke-width',.5)
-       .attr('fill',col).attr('fill-opacity',.1);
-    svg.append('text').attr('id','plot_text')
-       .text('[a,b,c,d,e,f]='+coef)
-       .attr('x',width/2).attr('y',40)
-       .attr('fill',col);};
-xScale=d3.scaleLinear().domain([-3,3]).range([0,width]);
-yScale=d3.scaleLinear().domain([-3,3]).range([height,0]);
-svg=d3.select('#d301')
-      .attr('width',width+margin.left+margin.right)
-      .attr('height',height+margin.top+margin.bottom)
-      .attr('transform','translate('+margin.left+','+margin.top+')');
-svg.append('text').text('<<< add a random line')
-   .attr('x',60).attr('y',40).attr('fill','#36ffff')
-   .attr('style','font-family:Akronim; font-size:120%'); 
-svg.append('circle')
-   .attr('cx',40).attr('cy',40)
-   .attr('r',20).attr('fill','#36ffff')
-   .attr('stroke','silver').attr('stroke-width',5)
-   .on('click',function() {
-        d3.selectAll('#plot_text').transition().duration(3000).remove();
-        d3.selectAll('path').transition().duration(3000).remove();
-        var array=make_data(),col=randcol();
-        RandomPlot(array[0],array[1],col);});
+<script src='https://d3js.org/d3.v6.min.js'/>
+
 </script></div><br/>
-      <h1>D3 Dumbbell Chart</h1>
-HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+      <h1>D3 </h1>
+<p>HTML &#38; JavaScript &#38; SageMathCell (Click 'Run HTML' twice!)</p>
 <div class='sage_html'><script type='text/x-sage'>
 %%html
-<svg id='d302' style='background-color:whitesmoke;'/>
-<script>
-db_data=[{name:'Fresh',median_mean:[8504,12000.297727272728]},
-         {name:'Milk',median_mean:[3627,5796.265909090909]},
-         {name:'Grocery',median_mean:[4755.5,7951.277272727273]},
-         {name:'Frozen',median_mean:[1526,3071.931818181818]},
-         {name:'Detergents_Paper',median_mean:[816.5,2881.4931818181817]},
-         {name:'Delicatessen',median_mean:[965.5,1524.8704545454545]}];
-m=20,margin={top:m,right:m,bottom:m,left:6*m},
-width=800,height=400,col1='#36ff36',col2='#3636ff';
-svg=d3.select('#d302')
-      .attr('viewBox',[0,0,1.2*width,1.2*height]);
-x=d3.scaleLinear()
-    .domain([0,d3.max(db_data,d=>d.median_mean[1])])
-    .range([margin.left,width-margin.right]);
-y=d3.scalePoint()
-    .domain(db_data.map(d=>d.name))
-    .rangeRound([margin.top,height-margin.bottom]);
-xAxis=g=>g.attr('transform',
-    'translate('+margin.left+','+height-margin.bottom+')')
-    .call(d3.axisBottom(x).ticks(.02*width).tickSizeOuter(0))
-    .call(g=>g.select('.domain').remove());
-yAxis=g=>g.attr('transform',
-    'translate('+margin.left+','+margin.top+')')
-    .call(d3.axisLeft(y))
-    .call(g=>g.select('.domain').remove())
-    .call(g=>g.select('.tick:last-of-type text')
-              .append('tspan').text(db_data.name));    
-svg.append('g').append('text').attr('text-anchor','middle')
-   .attr('x',width/2+margin.left)
-   .attr('y',height+margin.bottom+margin.top)
-   .style('font-size','20px')
-   .text('Median & Mean Values');
-svg.append('g').call(xAxis).style('font-size','12px');
-svg.append('g').call(yAxis).style('font-size','12px');
-var lines=svg.append('g').attr('class','lines')
-             .attr('transform',`translate(0,${margin.top})`)
-             .selectAll('line').data(db_data).join('line')
-             .attr('stroke','#363636').attr('stroke-width',4)
-             .attr('opacity','.7')
-             .attr('x1',d=>x(d.median_mean[0]))
-             .attr('x2',d=>x(d.median_mean[1]))
-             .attr('y1',d=>y(d.name)).attr('y2',d=>y(d.name));
-var dots=svg.append('g').attr('class','dots')
-            .attr('transform',`translate(0,${margin.top})`)
-            .selectAll('circle').data(db_data).join('circle')
-            .attr('fill',col1).attr('r',8)
-            .attr('cx',d=>x(d.median_mean[0]))
-            .attr('cy',d=>y(d.name))
-            .clone(true)
-            .attr('cx',d=>x(d.median_mean[1]))
-            .attr('fill',col2);
-svg.append('g').attr('id','legend_dot1').append('circle')
-   .attr('cx',width).attr('cy',height/2).attr('r',8).style('fill',col1);
-svg.append('text').text('<<< median')
-    .attr('x',width+10).attr('y',height/2+4);
-svg.append('g').attr('id','legend_dot2').append('circle')
-   .attr('cx',width).attr('cy',height/2+2*m).attr('r',8).style('fill',col2);
-svg.append('text').text('<<< mean')
-    .attr('x',width+10).attr('y',height/2+2*m+4);   
+<script src='https://d3js.org/d3.v6.min.js'/>
+ 
 </script></div><br/>
       <h1>An Example of Danfo DataFrames</h1>
-HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
+<p>HTML &#38; JavaScript &#38; SageMathCell (Click 'Run HTML' twice!)</p>
 <div class='sage_html'><script type='text/x-sage'>
 %%html
-<script src='https://cdn.jsdelivr.net/npm/danfojs@0.1.1/dist/index.min.js'/> 
+<script src='https://cdn.jsdelivr.net/npm/danfojs@0.1.1/dist/index.min.js'/>
 <h1>CSV =>>> Danfo DataFrames</h1>
-<p>Table Examples</p><div id='div015_1'/>
-<p>Chart Examples</p><div id='div015_2'/><script>
+<p>Table Examples</p><div id='div015_1'></div><br/>
+<p>Chart Examples</p><div id='div015_2'></div><script>
 var url='https://raw.githubusercontent.com/OlgaBelitskaya/'
     .concat('machine_learning_engineer_nd009/master/')
     .concat('Machine_Learning_Engineer_ND_P3/customers.csv');
@@ -360,7 +243,7 @@ dfd.read_csv(url)
    .then(df=>{df.plot('div015_2').line(
     {columns:['Fresh','Milk','Grocery','Frozen',
               'Detergents_Paper','Delicatessen']})})
-   .catch(err=>{console.log(err);})
+   .catch(err=>{console.log(err);});
 </script></div><br/>
   </body>
 </html>
