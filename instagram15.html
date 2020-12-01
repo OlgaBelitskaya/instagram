@@ -13,6 +13,8 @@
     sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
     sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
     </script>
+  <script src='https://d3js.org/d3.v6.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/danfojs@0.1.1/dist/index.min.js'></script>
   </head>
   <style>
   @import 'https://fonts.googleapis.com/css?family=Orbitron';
@@ -215,8 +217,7 @@ grid(); dev.off(); summary(customers)
 HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
 <div class='sage_html'><script type='text/x-sage'>
 %%html
-<style>@import 'https://fonts.googleapis.com/css?family=Akronim';
-</style><script src='https://d3js.org/d3.v6.min.js'/>
+<style>@import 'https://fonts.googleapis.com/css?family=Akronim';</style>
 <svg id='d301' style='background-color:silver;'/>
 <script>
 m=20,margin={top:m,right:m,bottom:m,left:m},
@@ -280,7 +281,6 @@ svg.append('circle')
 HTML &#38; JavaScript (Click 'Run HTML' twice!)<br/>
 <div class='sage_html'><script type='text/x-sage'>
 %%html
-<script src='https://d3js.org/d3.v6.min.js'/>
 <svg id='d302' style='background-color:whitesmoke;'/>
 <script>
 db_data=[{name:'Fresh',median_mean:[8504,12000.297727272728]},
