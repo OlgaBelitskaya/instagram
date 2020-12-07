@@ -37,7 +37,7 @@ Python &#38; SageMathCell
 #unlock to install pygal
 #!python3 -m pip install --upgrade pip --user
 #!python3 -m pip install pygal --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(path)
 </script></div>
     <p>Apply them</p>     
@@ -70,7 +70,7 @@ Python &#38; SageMathCell
 #unlock to install bokeh
 #!python3 -m pip install --upgrade pip --user
 #!python3 -m pip install bokeh --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys,os,numpy; sys.path.append(path)
 from bokeh.layouts import gridplot
 from bokeh.plotting import figure,show,output_file
@@ -102,25 +102,23 @@ Python &#38; SageMathCell
 <div class="linked"><script type="text/x-sage">
 #unlock to install torch & torchvision
 #!python3 -m pip install --upgrade pip --user
-#!python3 -m pip install torch --user
-#!python3 -m pip install torchvision --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+#!python3 -m pip install torch==1.6.0 --user
+#!python3 -m pip install torchvision==0.7.0 --user
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(path)
 </script></div>
 <div class="linked"><script type="text/x-sage">
 import numpy,pylab,torch,torchvision
 import torchvision.transforms as transforms
 tr0=(0.5,0.5,0.5)
-transform=transforms.Compose([transforms.ToTensor(),
-                              transforms.Normalize(tr0,tr0)])
-trainset=torchvision.datasets.CIFAR10(root='./data',
-                                      train=True,
-                                      download=True,
-                                      transform=transform)
-trainloader=torch.utils.data.DataLoader(trainset,
-                                        batch_size=int(8),
-                                        shuffle=True,
-                                        num_workers=int(2))
+transform=transforms.Compose(
+    [transforms.ToTensor(),transforms.Normalize(tr0,tr0)])
+trainset=torchvision.datasets.CIFAR10(
+    root='./data',train=True,download=True,
+    transform=transform)
+trainloader=torch.utils.data.DataLoader(
+    trainset,batch_size=int(8),shuffle=True,
+    num_workers=int(2))
 classes=('plane','car','bird','cat','deer',
          'dog','frog','horse','ship','truck')
 def imshow(img):
@@ -141,7 +139,7 @@ Python &#38; SageMathCell
 #unlock to install geopandas
 #!python3 -m pip install --upgrade pip --user
 #!python3 -m pip install geopandas --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(path)
 import pandas,geopandas,pylab
 fpath='https://olgabelitskaya.github.io/map.geojson'
@@ -158,7 +156,7 @@ Python &#38; SageMathCell
 #unlock to install opencv
 #!python3 -m pip install --upgrade pip --user
 #!python3 -m pip install opencv-python --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(path)
 import cv2,pylab,urllib 
 dpath='https://olgabelitskaya.github.io/new/'
@@ -194,7 +192,7 @@ Python &#38; SageMathCell
 #unlock to install folium
 #!python3 -m pip install --upgrade pip --user
 #!pip3 install folium --user
-path='/home/sc_work/.sage/local/lib/python3.7/site-packages'
+path='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(path) 
 import folium,warnings
 warnings.filterwarnings('ignore',category=UserWarning)
