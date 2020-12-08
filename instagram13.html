@@ -1,14 +1,10 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
     <title>Instagram_Posts13</title>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
-    <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src='https://sagecell.sagemath.org/static/embedded_sagecell.js'></script>
     <script>$(function (){
     sagecell.makeSagecell({inputLocation:'div.linked',linked:true,
                            evalButtonText:'Run Linked Cells'});
@@ -17,6 +13,10 @@
     sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
     sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
     </script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src='https://code.highcharts.com/highcharts-3d.js'></script>
+    <script src='https://code.highcharts.com/modules/accessibility.js'></script>
+    <script src='https://d3js.org/d3.v4.min.js'></script>
   </head>
   <style>
   @import url('https://fonts.googleapis.com/css?family=Orbitron');
@@ -26,23 +26,22 @@
   body {margin:5px 5px 5px 15px;}
   </style>  
   <body>
- <script src="https://profile.codersrank.io/widget/widget.js"></script>
-<codersrank-widget username="olgabelitskaya" layout="vertical"
-style="--header-bg-color:#3636ff; font-family:Orbitron;"></codersrank-widget>
+ <script src='https://profile.codersrank.io/widget/widget.js'></script>
+<codersrank-widget username='olgabelitskaya' layout='vertical'
+style='--header-bg-color:#3636ff; font-family:Orbitron;'></codersrank-widget>
     <h1>&#x1F4D1; &nbsp;Instagram Posts. Part 13</h1>
-<a href="https://olgabelitskaya.github.io/README.html">&#x1F300; &nbsp; Home Page &nbsp; &nbsp;</a> 
-<a href="https://olgabelitskaya.github.io/instagram12.html">&#x1F300; &nbsp; Previous &nbsp; &nbsp;</a>
-<a href="https://olgabelitskaya.github.io/instagram14.html">&#x1F300; &nbsp; Next &nbsp; &nbsp;</a><br/>
-<a href="https://www.instagram.com/olga.belitskaya/">&#x1F300; &nbsp; Instagram Posts &nbsp; &nbsp;</a>     
-<a href="https://www.pinterest.ru/olga_belitskaya/code-style/">&#x1F300; &nbsp; Pinterest Posts</a>
+<a href='https://olgabelitskaya.github.io/README.html'>&#x1F300; &nbsp; Home Page &nbsp; &nbsp;</a> 
+<a href='https://olgabelitskaya.github.io/instagram12.html'>&#x1F300; &nbsp; Previous &nbsp; &nbsp;</a>
+<a href='https://olgabelitskaya.github.io/instagram14.html'>&#x1F300; &nbsp; Next &nbsp; &nbsp;</a><br/>
+<a href='https://www.instagram.com/olga.belitskaya/'>&#x1F300; &nbsp; Instagram Posts &nbsp; &nbsp;</a>     
+<a href='https://www.pinterest.ru/olga_belitskaya/code-style/'>&#x1F300; &nbsp; Pinterest Posts</a>
     <h1>If you want to use linked cells to get web images</h1>
 SageMath &#38; SageMathCell <br/>
-<div class="linked"><script type="text/x-sage">
-!python3 -m pip install bs4 --user
+<div class='linked'><script type='text/x-sage'>
+!python3 -m pip install bs4 \
+--user --quiet --no-warn-script-location
 spath='/home/sc_work/.sage/local/lib/python3.8/site-packages'
 import sys; sys.path.append(spath)
-</script></div><br/>
-<div class="linked"><script type="text/x-sage">
 import os,requests,urllib
 from bs4 import BeautifulSoup
 site='https://en.wikivoyage.org/wiki/Main_Page'
@@ -67,8 +66,9 @@ html(s1+fpath+s2)
 <a href="https://www.doverpublications.com/zb/samples/797910/sample6b.html">&#x1F300; &nbsp; Pattern 3 &nbsp; &nbsp;</a>
 <a href="https://www.doverpublications.com/zb/samples/797910/sample6d.html">&#x1F300; &nbsp; Pattern 4 &nbsp; &nbsp;</a><br/>
 SageMath &#38; SageMathCell <br/>
-<div class="sage"><script type="text/x-sage">
-import pylab; from skimage import io,color,measure
+<div class='sage'><script type='text/x-sage'>
+import pylab,numpy; from skimage import io,color,measure
+import warnings; warnings.filterwarnings('ignore')
 @interact
 def _vector(file=[1,2,3,4],
             cm=['ocean','cool','gnuplot2','terrain',
@@ -77,7 +77,6 @@ def _vector(file=[1,2,3,4],
     path1='https://olgabelitskaya.github.io/'
     path2='pattern0%s'%(file+3)+'.jpeg'
     img=color.colorconv.rgba2rgb(io.imread(path1+path2))
-    level=level
     gray_img=color.colorconv.rgb2gray(img)
     contours=measure.find_contours(gray_img,level)
     n=len(contours); pylab.figure(figsize=(4,5))
@@ -89,8 +88,9 @@ def _vector(file=[1,2,3,4],
 </script></div><br/>
     <h1>Key Points of Sketch Images</h1>
 SageMath &#38; SageMathCell 
-<div class="sage"><script type="text/x-sage">
+<div class='sage'><script type='text/x-sage'>
 import numpy as np,pylab as pl
+import warnings; warnings.filterwarnings('ignore')
 from skimage.transform import resize
 def get_line(x1,y1,x2,y2):
     steep=abs(y2-y1)>abs(x2-x1); rev=False
@@ -134,7 +134,7 @@ pl.imshow(img,cmap=pl.cm.Pastel1); pl.show()
 </script></div><br/>
     <h1>If you want to link cells for querying</h1>
 Python &#38; SageMathCell <br/>
-<div class="linked"><script type="text/x-sage">
+<div class='linked'><script type='text/x-sage'>
 import sqlite3; import pandas as pd
 from IPython.core.display import display
 from IPython.core.magic import register_line_magic
@@ -163,7 +163,7 @@ def get_query(q):
     if os.path.exists('db.db'):
         os.remove('db.db')
 </script></div><br/>
-<div class="linked"><script type="text/x-sage">
+<div class='linked'><script type='text/x-sage'>
 %get_query \
 SELECT method, \
        COUNT(*) AS number, \
@@ -173,32 +173,35 @@ GROUP BY method;
 </script></div><br/>   
     <h1>If you want to link cells for plotting</h1>
 Python &#38; R &#38; SageMathCell <br/>     
-<div class="linked"><script type="text/x-sage">
+<div class='linked'><script type='text/x-sage'>
 %%r
-X3<-Z3<-X4<-Z4<-Y5<-Z5<-seq(from=-5,to=5,by=0.1)
+X3<-Z3<-X4<-Z4<-Y5<-Z5<-seq(from=-5,to=5,by=.1)
 cylinder1<-function(p,q,X,Z){
     for (x in X){for (z in Z){
         y<-q*(1-x^2/p^2)^0.5; v<-c(x,y,z,x,-y,z)
         if (sum(is.na(v))==0){
-            write.table(matrix(v,nrow=2,ncol=3,byrow=T),
-                        file ="cylinder1.csv",append=T,
-                        quote=F,col.names=F,row.names=F)}}}}
+            write.table(matrix(v,nrow=2,ncol=3,byrow=TRUE),
+                        file ='cylinder1.csv',
+                        append=TRUE,quote=FALSE,
+                        col.names=FALSE,row.names=FALSE)}}}}
 cylinder2<-function(p,q,X,Z){
     for (x in X){for (z in Z){
         y<-q*(x^2/p^2-1)^0.5; v<-c(x,y,z,x,-y,z)
         if (sum(is.na(v))==0){
-            write.table(matrix(v,nrow=2,ncol=3,byrow=T),
-                        file="cylinder2.csv",append=T,
-                        quote=F,col.names=F,row.names=F)}}}}
+            write.table(matrix(v,nrow=2,ncol=3,byrow=TRUE),
+                        file='cylinder2.csv',
+                        append=TRUE,quote=FALSE,
+                        col.names=FALSE,row.names=FALSE)}}}}
 cylinder3<-function(p,Y,Z){
     for (y in Y){for (z in Z){
         x<-y^2/2/p; v<-c(x,y,z)
-        write.table(matrix(v,nrow=1,ncol=3,byrow=T),
-                    file ="cylinder3.csv",append=T,
-                    quote=F,col.names=F,row.names=F)}}}
+        write.table(matrix(v,nrow=1,ncol=3,byrow=TRUE),
+                    file ='cylinder3.csv',
+                    append=TRUE,quote=FALSE,
+                    col.names=FALSE,row.names=FALSE)}}}
 cylinder1(3,4,X3,Z3); cylinder2(2,3,X4,Z4); cylinder3(2,Y5,Z5)
 </script></div><br/>
-<div class="linked"><script type="text/x-sage">
+<div class='linked'><script type='text/x-sage'>
 import pylab,numpy
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.lines import Line2D
@@ -214,13 +217,14 @@ fig=pylab.figure(figsize=(7,7))
 ax=fig.add_subplot(111,projection='3d')
 [ax.scatter(XYZ[i][0],XYZ[i][1],XYZ[i][2],s=1,\
  c=colors[i],marker='1') for i in range(3)]
-fake2Dlines=[Line2D([0],[0],linestyle="none",\
+fake2Dlines=[Line2D([0],[0],linestyle='none',\
              c=c,marker='1') for c in colors]
-ax.legend(fake2Dlines,labels,loc=9); pylab.show()
+ax.legend(fake2Dlines,labels,loc=9) 
+pylab.tight_layout(); pylab.show()
 </script></div><br/>
     <h1>Exercises in R and Python at the same time</h1>
 Python &#38; R &#38; SageMathCell <br/>
-<div class="sage"><script type="text/x-sage">
+<div class='sage'><script type='text/x-sage'>
 import rpy2.robjects as ro,pandas as pd,pylab as pl
 import warnings as wr; wr.filterwarnings('ignore')
 from rpy2.robjects.packages import importr
@@ -228,8 +232,8 @@ from rpy2.robjects.conversion import localconverter
 from rpy2.robjects import r,pandas2ri
 pandas2ri.activate()
 pd_dict={'real_values':[random() for i in range(10)],
-         'str_values':["😀","😁","😂","😃","😄",
-                       "😉","😊","😋","😌","😍"]} 
+         'str_values':['😀','😁','😂','😃','😄',
+                       '😉','😊','😋','😌','😍']} 
 pd_df=pd.DataFrame(pd_dict)
 base=importr('base')
 with localconverter(ro.default_converter+pandas2ri.converter):
@@ -251,10 +255,11 @@ with localconverter(ro.default_converter+pandas2ri.converter):
     print(base.summary(ro.r('df')))
 </script></div><br/>
     <h1>D3.js for Plotting with Random Coefficients</h1>
+<p>&#60;script src='https://d3js.org/d3.v4.min.js'>&#60;/script> 
+    was added in the page head.</p>
 HTML &#38; JavaScript &#38; SageMathCell<br/>
-<div class="sage_html"><script type="text/x-sage">
+<div class='sage_html'><script type='text/x-sage'>
 %%html
-<script src='https://d3js.org/d3.v4.min.js'/>
 <svg id='d303' style='background-color:silver;'/>
 <script>
 var n=6400,m=6,d=.001,margin={top:m,right:m,bottom:m,left:m},
@@ -291,18 +296,18 @@ for (var i=1; i<m; i++) {var data=make_data(i),col=rcolor(i);
         .attr('stroke',col).attr('fill','none');};
 </script></div><br/>
     <h1>Highcharts.js for 3D Plotting</h1>
+<p id='d301p02'>&#60;script src='https://code.highcharts.com/highcharts.js'>&#60;/script>
+    <br/>&#60;script src='https://code.highcharts.com/highcharts-3d.js'>&#60;/script>
+    <br/>&#60;script src='https://code.highcharts.com/modules/accessibility.js'>&#60;/script>
+    <br/>was added in the page head.</p>
 HTML &#38; JavaScript &#38; SageMathCell<br/>
-<div class="sage_html"><script type="text/x-sage">
+<div class='sage_html'><script type='text/x-sage'>
 %%html
-<!--These scripts were  placed between the  <head></head> tags-->
-<!--<script src="https://code.highcharts.com/highcharts.js"/>-->
-<!--<script src="https://code.highcharts.com/highcharts-3d.js"/>-->
-<!--<script src="https://code.highcharts.com/modules/accessibility.js"/>-->
-<figure class="highcharts-figure">
-<div id="hich" style="width:500px; height:500px;">
+<figure class='highcharts-figure'>
+<div id='hich' style='width:500px; height:500px;'>
 the javascript cell is launching here...</div></figure>
 </script></div><br/>
-<div class="sage_js"><script type="text/x-sage">
+<div class='sage_js'><script type='text/x-sage'>
 %%javascript
 function randi(min,max) {return Math.floor(Math.random()*(max-min+1))+min;};
 var d=.005,l=5,n=3,a=randi(11,19),b=randi(24,64);
@@ -357,10 +362,11 @@ var chart=new Highcharts.Chart({
 }(Highcharts));
 </script></div><br/>
     <h1>D3.js for Plotting CSV</h1>
+<p>&#60;script src='https://d3js.org/d3.v4.min.js'>&#60;/script> 
+    was added in the page head.</p>
 HTML &#38; JavaScript &#38; SageMathCell<br/>
-<div class="sage_html"><script type="text/x-sage">
+<div class='sage_html'><script type='text/x-sage'>
 %%html
-<script src='https://d3js.org/d3.v4.min.js'/>
 <svg id='chsvg01' style='background-color:slategray;'/>
 <script>
 var url='https://olgabelitskaya.github.io/beethoven.csv';
