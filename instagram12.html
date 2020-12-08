@@ -12,11 +12,13 @@
     sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
     sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
     </script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src='https://d3js.org/d3.v4.min.js'></script>
   </head>
   <style>
   @import url('https://fonts.googleapis.com/css?family=Orbitron');
-  h1, h2 {color:#3636ff; font-family:Orbitron; text-shadow:5px 5px 5px #aaa;}
-  p, a {color:darkblue; font-size:120%; text-shadow:5px 5px 5px #aaa;}
+  h1,h2 {color:#3636ff; font-family:Orbitron; text-shadow:5px 5px 5px #aaa;}
+  p,a {color:darkblue; font-size:120%; text-shadow:5px 5px 5px #aaa;}
   .sagecell .CodeMirror-scroll {min-height:3em; max-height:60em;}
   body {margin:5px 5px 5px 15px;}
   </style>  
@@ -246,7 +248,7 @@ for (j in 3:5) {
 grid(); dev.off()
 </script></div><br/>
     <h1>Encode URI Components</h1>
-HTML &#38; JavaScript &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+HTML &#38; JavaScript &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
 <style>
@@ -269,10 +271,10 @@ function myfun(s){
     doc.innerHTML=encodeURIComponent(s);};
 </script></div><br/>
     <h1>D3 Color Gradients</h1>
-HTML &#38; JavaScript &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://d3js.org/d3.v4.min.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; JavaScript &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src="//d3js.org/d3.v3.min.js"/>
 <svg id='d3b02' style='background-color:#101050;'/><script>
 var width=250,height=250,ra=3*360,
     col=["silver","darkgray","slategray","darkslategray"],
@@ -302,10 +304,10 @@ function raindrop(size){
          +"C0,"+-r+" "+r+","+-r+" "+r+",0"+"Z";};
 </script></div>
    <h1>D3 Plotting and Functions</h1>
-HTML &#38; JavaScript &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://d3js.org/d3.v4.min.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; JavaScript &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://d3js.org/d3.v4.min.js'/>
 <svg id='d303' style='background-color:ghostwhite;'/>
 <script>
 var n=640,m=50,d=.01,margin={top:m,right:m,bottom:m,left:m},
@@ -331,11 +333,11 @@ for (var i=1; i<m; i++) {var data=make_data(i),col=rcolor(i);
        .attr('class','line').attr('d',line)
        .attr('stroke',col).attr('fill','none');};
 </script></div>
-   <h1>Plotly Plotting and Functions</h1>
-HTML &#38; JavaScript &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+   <h1>Plotly and Functions</h1>
+<p>&#60;script src='https://cdn.plot.ly/plotly-latest.min.js'>&#60;/script>  was added in the page head.</p>
+HTML &#38; JavaScript &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://cdn.plot.ly/plotly-latest.min.js'/>
 <div id='plotlychart' style='width:750px;height:750px;'/>
 <script>doc1=document.getElementById('plotlychart');
 function randi(min,max){
@@ -364,10 +366,9 @@ var a=randi(3,11),b=randi(3,25),c=randi(8,16),d=randi(5,9),
     e=randi(200,300),q=randi(2,10),n=randi(30,300);
 for (var k=1; k<2*q+1; k++){plt(k);};
 </script></div><br/>
-HTML &#38; JavaScript &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+HTML &#38; JavaScript &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://cdn.plot.ly/plotly-latest.min.js'/>
 <div id='plotlychart2' style='width:750px;height:600px;'/>
 <script>doc2=document.getElementById('plotlychart2');
 function randi(min,max){
