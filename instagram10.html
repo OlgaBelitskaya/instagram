@@ -12,6 +12,10 @@
     sagecell.makeSagecell({inputLocation:'div.sage_r',evalButtonText:'Run R'});  
     sagecell.makeSagecell({inputLocation:'div.sage',evalButtonText:'Run SageMath'}); });
     </script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src='https://code.highcharts.com/modules/histogram-bellcurve.js'></script>
+    <script src='https://www.gstatic.com/charts/loader.js'></script>
+    <script src='https://d3js.org/d3.v4.min.js'></script>
   </head>
   <style>
   @import url('https://fonts.googleapis.com/css?family=Orbitron');
@@ -70,10 +74,10 @@ a,b,c=randint(8,16),randint(13,19),2*randint(3,6)
 s1=r'<p style="color:#00aaff;">'
 s2=r'$a=%d; \; b=%d; \; c=%d; \; n=%d$</p>'
 pretty_print(html(s1+s2%(a,b,c,n)))
-fy(t,k)=cos(pi*t/n+2*k*pi/c)+\
-cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
-fx(t,k)=sin(pi*t/n+2*k*pi/c)-\
-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
+fy(t,k)=cos(pi*t/n+2*k*pi/c)
+fy(t,k)=fy(t,k)+cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
+fx(t,k)=sin(pi*t/n+2*k*pi/c)
+fx(t,k)=fx(t,k)-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
 L=[[[fx(t,k),fy(t,k)] 
     for t in range(2*n)] for k in range(2*c)]
 sum([polygon2d(L[i],color=(0,random(),random()),
@@ -86,10 +90,10 @@ a,b,c=randint(5,11),randint(13,19),2*randint(3,6)
 s1=r'<p style="color:#ff00aa;">'
 s2=r'$a=%d; \; b=%d; \; c=%d; \; n=%d$</p>'
 pretty_print(html(s1+s2%(a,b,c,n)))
-fy(t,k)=cos(pi*t/n+2*k*pi/c)+\
-cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
-fx(t,k)=sin(pi*t/n+2*k*pi/c)-\
-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
+fy(t,k)=cos(pi*t/n+2*k*pi/c)
+fy(t,k)=fy(t,k)+cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
+fx(t,k)=sin(pi*t/n+2*k*pi/c)
+fx(t,k)=fx(t,k)-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
 L=[[[fx(t,k),fy(t,k)] 
     for t in range(2*n)] for k in range(2*c)]
 sum([polygon2d(L[i],color=(1,random(),random()),
@@ -187,10 +191,10 @@ st2='Emotional Horoscope for the Day</p>'
 pretty_print(html(st1+st2))
 var('t,k'); n=randint(16,36)
 a,b,c=randint(5,11),randint(12,24),2*randint(3,6)
-fy(t,k)=cos(pi*t/n+2*k*pi/c)+\
-cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
-fx(t,k)=sin(pi*t/n+2*k*pi/c)-\
-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
+fy(t,k)=cos(pi*t/n+2*k*pi/c)
+fy(t,k)=fy(t,k)+cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
+fx(t,k)=sin(pi*t/n+2*k*pi/c)
+fx(t,k)=fx(t,k)-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
 L=[[[fx(t,k),fy(t,k)] 
     for t in range(2*n)] for k in range(2*c)]
 EL=[(3*cos(j*pi/12),3*sin(j*pi/12)) 
@@ -215,16 +219,15 @@ st2='">=>Fortune Telling on a Chamomile</p>'
 def col(): 
     return Color(1,random(),random()).html_color()
 pretty_print(html(st1+col()+st2))
-fy(t,k)=cos(pi*t/n+2*k*pi/c)+\
-cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
-fx(t,k)=sin(pi*t/n+2*k*pi/c)-\
-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
+fy(t,k)=cos(pi*t/n+2*k*pi/c)
+fy(t,k)=fy(t,k)+cos(a*pi*t/n+2*k*pi/c)+cos(b*pi*t/n+2*k*pi/c)
+fx(t,k)=sin(pi*t/n+2*k*pi/c)
+fx(t,k)=fx(t,k)-sin(a*pi*t/n+2*k*pi/c)+sin(b*pi*t/n+2*k*pi/c)
 L=[[[fx(t,k),fy(t,k)] 
     for t in range(2*n)] for k in range(2*c)]
 sum([polygon2d(L[i],color=col(),
                thickness=.5,alpha=.1,axes=False) 
-     for i in range(2*c)])+\
-text(el[randint(0,len(el)-1)],
+     for i in range(2*c)])+text(el[randint(0,len(el)-1)],
      (0,0),fontsize=120,color=col())
 </script></div><br/>
     <h1>Parametric 3D Plotting in Python</h1>
@@ -398,11 +401,12 @@ c(paste0('a = ',a),paste0('b = ',b),
 HTML &#38; JavaScript &#38; SageMathCell <br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://code.highcharts.com/highcharts.js'/>
-<script src='https://code.highcharts.com/modules/histogram-bellcurve.js'/>
 <div id='container1' style='height:600px; width:600px; margin:0 auto'>
 the javascript cell is launching here...</div>
 </script></div><br/>
+<p>&#60;script src='https://code.highcharts.com/highcharts.js'>&#60;/script>
+<br/>&#60;script src='https://code.highcharts.com/modules/histogram-bellcurve.js'>&#60;/script>
+<br/>was added in the page head.</p>
 <div class="sage_js"><script type="text/x-sage">
 %%javascript
 function randi(xmin,xmax){
@@ -425,10 +429,10 @@ Highcharts.chart('container1',{
 </script></div><br/>
    <h1>Plotting and Functions</h1>
    <h1>in JavaScript inside HTML Cells</h1>
-HTML &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://www.gstatic.com/charts/loader.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://www.gstatic.com/charts/loader.js'/>
 <div id='test_googlechart3' style='width:610px; height:410px;'/>
 <script>
 google.charts.load('current',{packages:['corechart']}); 
@@ -454,10 +458,10 @@ function drawChart() {
     var chart=new google.visualization.ColumnChart(doc); 
     chart.draw(data,options);};
 </script></div><br/>
-HTML &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://www.gstatic.com/charts/loader.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src='https://www.gstatic.com/charts/loader.js'/>
 <div id='gchart' style='width:600px; height:600px;'/>
 <script>
 google.charts.load('current',{'packages':['corechart']}); 
@@ -485,7 +489,8 @@ function drawChart(){
   var chart=new google.visualization.LineChart(doc); 
   chart.draw(data,options);};
 </script></div><br/>
-HTML &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://d3js.org/d3.v.min.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
 <style>
@@ -493,7 +498,6 @@ text {fill:#fff; font-size:135%;}
 .grid line,.grid path {stroke:#fff; stroke-opacity:0.9; 
                        shape-rendering:crispEdges;}
 </style>
-<script src='https://d3js.org/d3.v4.min.js'/>
 <svg id='svg' style='background-color:silver;'/><script>
 var n=640,m=30; var i,t,k,xmax,xmin;
 var margin={top:m,right:m,bottom:m,left:m},
@@ -542,10 +546,10 @@ for (i=1; i<l+1; i++) {var data=make_data(i); var col=gcolor(i);
 svg.append('text').attr('transform',ttr3)
    .style('fill','#fff').text('a='+a+'; b='+b+'; l='+l);
 </script></div><br/>
-HTML &#38; SageMathCell (Click “Run HTML” twice!)<br/>
+<p>&#60;script src='https://d3js.org/d3.v.min.js'>&#60;/script> was added in the page head.</p>
+HTML &#38; SageMathCell<br/>
 <div class="sage_html"><script type="text/x-sage">
 %%html
-<script src="https://d3js.org/d3.v4.min.js"/>
 <svg id="svg2" style="background-color:ghostwhite;"/>
 <script>
 var n=640,m=30; var i,j,k,xmax,xmin;
